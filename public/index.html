@@ -11,14 +11,29 @@
 </head>
 
 <body>
+    <!-- TODO: Update the tags to HTML5 semantic standards -->
     <div class='root'>
         <header id='header'>
             <h1>My Calendar App</h1>
-            <input id='username' type="text" name="" placeholder="Username">
-            <input id='password' type="password" placeholder="Password">
-            <button>Sign In</button>
-            <span>or</span>
-            <button>Register</button>
+            <form name="loginForm">
+                <p>
+                    Enter Your Username:
+                    <input id='username' type="text" name="" placeholder="Username">
+                </p>
+                <p>
+                    Enter Your Password:
+                    <input id='password' type="password" placeholder="Password">
+                </p>
+                <p>
+                    <input type="submit" name="login" value="Log In" />
+                    <br />
+                    Or
+                    <input type="submit" name="register" value="Register" />
+                    <br />
+                    Or
+                    <input type="submit" name="guest" value="Continue as Guest" />
+                </p>
+            </form>
         </header>
         <div id='calendar'></div>
     </div>
