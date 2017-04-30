@@ -1,7 +1,7 @@
 setTimeout(function () {
     $(document).ready(function () {
         $('#calendar').fullCalendar({
-            aspectRatio: 2.5,
+            aspectRatio: 2,
             dayClick: function () {
                 $(function () {
                     $("#dialog").dialog();
