@@ -3,6 +3,6 @@ setTimeout(function(){ $(document).ready(function () {
         dayClick: function () {
             alert('a day has been clicked!');
         }
-    })
+    });
 
 }); }, 1500);

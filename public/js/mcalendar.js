@@ -16,7 +16,6 @@
 	}
 })(function($, moment) {
 
-;;
 
 var FC = $.fullCalendar = {
 	version: "3.3.1",
@@ -74,8 +73,6 @@ var complexOptions = [ // names of options that are objects whose properties sho
 function mergeOptions(optionObjs) {
 	return mergeProps(optionObjs, complexOptions);
 }
-
-;;
 
 // exports
 FC.intersectRanges = intersectRanges;
@@ -563,10 +560,10 @@ function flexibleCompare(a, b) {
 	if (!a && !b) {
 		return 0;
 	}
-	if (b == null) {
+	if (b === null) {
 		return -1;
 	}
-	if (a == null) {
+	if (a === null) {
 		return 1;
 	}
 	if ($.type(a) === 'string' || $.type(b) === 'string') {
@@ -701,7 +698,7 @@ function computeDurationGreatestUnit(duration, durationInput) {
 // of month-diffing logic (which tends to vary from version to version).
 function computeRangeAs(unit, start, end) {
 
-	if (end != null) { // given start, end
+	if (end !== null) { // given start, end
 		return end.diff(start, unit, true);
 	}
 	else if (moment.isDuration(start)) { // given duration
@@ -1013,7 +1010,7 @@ function cssToStr(cssProps) {
 	var statements = [];
 
 	$.each(cssProps, function(name, val) {
-		if (val != null) {
+		if (val !== null) {
 			statements.push(name + ':' + val);
 		}
 	});
@@ -1028,7 +1025,7 @@ function attrsToStr(attrs) {
 	var parts = [];
 
 	$.each(attrs, function(name, val) {
-		if (val != null) {
+		if (val !== null) {
 			parts.push(name + '="' + htmlEscape(val) + '"');
 		}
 	});
@@ -1101,8 +1098,6 @@ function debounce(func, wait, immediate) {
 		return result;
 	};
 }
-
-;;
 
 /*
 GENERAL NOTE on moments throughout the *entire rest* of the codebase:
@@ -1229,7 +1224,7 @@ function makeMoment(args, parseAsUTC, parseZone) {
 newMomentProto.week = newMomentProto.weeks = function(input) {
 	var weekCalc = this._locale._fullCalendar_weekCalc;
 
-	if (input == null && typeof weekCalc === 'function') { // custom function only works for getter
+	if (input === null && typeof weekCalc === 'function') { // custom function only works for getter
 		return weekCalc(this);
 	}
 	else if (weekCalc === 'ISO') {
@@ -1258,7 +1253,7 @@ newMomentProto.time = function(time) {
 		return oldMomentProto.time.apply(this, arguments);
 	}
 
-	if (time == null) { // getter
+	if (time === null) { // getter
 		return moment.duration({
 			hours: this.hours(),
 			minutes: this.minutes(),
@@ -1387,7 +1382,7 @@ newMomentProto.utc = function(keepLocalTime) {
 // implicitly marks a zone (will probably get called upon .utc() and .local())
 newMomentProto.utcOffset = function(tzo) {
 
-	if (tzo != null) { // setter
+	if (tzo !== null) { // setter
 		// these assignments needs to happen before the original zone method is called.
 		// I forget why, something to do with a browser crash.
 		this._ambigTime = false;
@@ -1424,7 +1419,6 @@ newMomentProto.toISOString = function() {
 	return oldMomentProto.toISOString.apply(this, arguments);
 };
 
-;;
 (function() {
 
 // exports
@@ -1833,7 +1827,7 @@ function queryMostGranularFormatUnit(formatStr) {
 	}
 
 	return null;
-};
+}
 
 })();
 
@@ -1841,8 +1835,6 @@ function queryMostGranularFormatUnit(formatStr) {
 var formatDate = FC.formatDate;
 var formatRange = FC.formatRange;
 var oldMomentFormat = FC.oldMomentFormat;
-
-;;
 
 FC.Class = Class; // export
 
@@ -1904,7 +1896,6 @@ function extendClass(superClass, members) {
 function mixIntoClass(theClass, members) {
 	copyOwnProps(members, theClass.prototype);
 }
-;;
 
 /*
 Wrap jQuery's Deferred Promise object to be slightly more Promise/A+ compliant.
@@ -2032,8 +2023,6 @@ Promise.all = function(inputs) {
 	}
 };
 
-;;
-
 // TODO: write tests and clean up code
 
 function TaskQueue(debounceWait) {
@@ -2098,8 +2087,6 @@ function trigger() {
 
 work(9);
 */
-
-;;
 
 var EmitterMixin = FC.EmitterMixin = {
 
@@ -2171,8 +2158,6 @@ var EmitterMixin = FC.EmitterMixin = {
 
 };
 
-;;
-
 /*
 Utility methods for easily listening to events on another object,
 and more importantly, easily unlistening from them.
@@ -2224,7 +2209,7 @@ var ListenerMixin = FC.ListenerMixin = (function() {
 		Returns a string, unique to this object, to be used for event namespacing
 		*/
 		getListenerNamespace: function() {
-			if (this.listenerId == null) {
+			if (this.listenerId === null) {
 				this.listenerId = guid++;
 			}
 			return '_listener' + this.listenerId;
@@ -2233,7 +2218,6 @@ var ListenerMixin = FC.ListenerMixin = (function() {
 	};
 	return ListenerMixin;
 })();
-;;
 
 /* A rectangular panel that is absolutely positioned over other content
 ------------------------------------------------------------------------------------------------------------------------
@@ -2400,8 +2384,6 @@ var Popover = Class.extend(ListenerMixin, {
 	}
 
 });
-
-;;
 
 /*
 A cache for the left/right/top/bottom/width/height values for one or more elements.
@@ -2658,8 +2640,6 @@ var CoordCache = FC.CoordCache = Class.extend({
 	}
 
 });
-
-;;
 
 /* Tracks a drag's mouse movement, firing various handlers
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -2971,7 +2951,6 @@ var DragListener = FC.DragListener = Class.extend(ListenerMixin, {
 
 });
 
-;;
 /*
 this.scrollEl is set in DragListener
 */
@@ -3157,7 +3136,6 @@ DragListener.mixin({
 	}
 
 });
-;;
 
 /* Tracks mouse movements over a component and raises events about which hit the mouse is over.
 ------------------------------------------------------------------------------------------------------------------------
@@ -3370,7 +3348,6 @@ function isHitPropsWithin(subHit, superHit) {
 	return true;
 }
 
-;;
 
 /*
 Listens to document and window-level user-interaction events, like touch events and mouse events,
@@ -3595,8 +3572,6 @@ var GlobalEmitter = Class.extend(ListenerMixin, EmitterMixin, {
 
 })();
 
-;;
-
 /* Creates a clone of an element and lets it track the mouse as it moves
 ----------------------------------------------------------------------------------------------------------------------*/
 
@@ -3789,8 +3764,6 @@ var MouseFollower = Class.extend(ListenerMixin, {
 
 });
 
-;;
-
 /* An abstract class comprised of a "grid" of areas that each represent a specific datetime
 ----------------------------------------------------------------------------------------------------------------------*/
 
@@ -3892,12 +3865,12 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, {
 			this.computeEventTimeFormat();
 
 		displayEventTime = view.opt('displayEventTime');
-		if (displayEventTime == null) {
+		if (displayEventTime === null) {
 			displayEventTime = this.computeDisplayEventTime(); // might be based off of range
 		}
 
 		displayEventEnd = view.opt('displayEventEnd');
-		if (displayEventEnd == null) {
+		if (displayEventEnd === null) {
 			displayEventEnd = this.computeDisplayEventEnd(); // might be based off of range
 		}
 
@@ -4112,7 +4085,7 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, {
 		}
 
 		selectLongPressDelay = view.opt('selectLongPressDelay');
-		if (selectLongPressDelay == null) {
+		if (selectLongPressDelay === null) {
 			selectLongPressDelay = view.opt('longPressDelay'); // fallback
 		}
 
@@ -4524,8 +4497,6 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, {
 
 });
 
-;;
-
 /* Event-rendering and event-interaction methods for the abstract Grid class
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -4731,7 +4702,7 @@ Grid.mixin({
 		var calendar = this.view.calendar;
 		var events;
 
-		if (businessHours == null) {
+		if (businessHours === null) {
 			// fallback
 			// access from calendawr. don't access from view. doesn't update with dynamic options.
 			businessHours = calendar.options.businessHours;
@@ -4861,7 +4832,7 @@ Grid.mixin({
 		if (!isResizing && (isDraggable || isResizable)) { // allowed to be selected?
 
 			eventLongPressDelay = view.opt('eventLongPressDelay');
-			if (eventLongPressDelay == null) {
+			if (eventLongPressDelay === null) {
 				eventLongPressDelay = view.opt('longPressDelay'); // fallback
 			}
 
@@ -5112,7 +5083,7 @@ Grid.mixin({
 	applyDragOpacity: function(els) {
 		var opacity = this.view.opt('dragOpacity');
 
-		if (opacity != null) {
+		if (opacity !== null) {
 			els.css('opacity', opacity);
 		}
 	},
@@ -5428,11 +5399,11 @@ Grid.mixin({
 	// and displayEnd will default to the displayEventEnd setting.
 	getEventTimeText: function(range, formatStr, displayEnd) {
 
-		if (formatStr == null) {
+		if (formatStr === null) {
 			formatStr = this.eventTimeFormat;
 		}
 
-		if (displayEnd == null) {
+		if (displayEnd === null) {
 			displayEnd = this.displayEventEnd;
 		}
 
@@ -5713,7 +5684,7 @@ Grid.mixin({
 					event.end.clone() :
 					// derive the end from the start and allDay. compute allDay if necessary
 					calendar.getDefaultEventEnd(
-						event.allDay != null ?
+						event.allDay !== null ?
 							event.allDay :
 							!event.start.hasTime(),
 						event.start
@@ -5913,7 +5884,7 @@ function getDraggedElMeta(el) {
 
 		// pluck special-cased date/time properties
 		startTime = eventProps.start;
-		if (startTime == null) { startTime = eventProps.time; } // accept 'time' as well
+		if (startTime === null) { startTime = eventProps.time; } // accept 'time' as well
 		duration = eventProps.duration;
 		stick = eventProps.stick;
 		delete eventProps.start;
@@ -5923,21 +5894,19 @@ function getDraggedElMeta(el) {
 	}
 
 	// fallback to standalone attribute values for each of the date/time properties
-	if (startTime == null) { startTime = el.data(prefix + 'start'); }
-	if (startTime == null) { startTime = el.data(prefix + 'time'); } // accept 'time' as well
-	if (duration == null) { duration = el.data(prefix + 'duration'); }
-	if (stick == null) { stick = el.data(prefix + 'stick'); }
+	if (startTime === null) { startTime = el.data(prefix + 'start'); }
+	if (startTime === null) { startTime = el.data(prefix + 'time'); } // accept 'time' as well
+	if (duration === null) { duration = el.data(prefix + 'duration'); }
+	if (stick === null) { stick = el.data(prefix + 'stick'); }
 
 	// massage into correct data types
-	startTime = startTime != null ? moment.duration(startTime) : null;
-	duration = duration != null ? moment.duration(duration) : null;
+	startTime = startTime !== null ? moment.duration(startTime) : null;
+	duration = duration !== null ? moment.duration(duration) : null;
 	stick = Boolean(stick);
 
 	return { eventProps: eventProps, startTime: startTime, duration: duration, stick: stick };
 }
 
-
-;;
 
 /*
 A set of rendering and date-related methods for a visual component comprised of one or more rows of day columns.
@@ -6363,7 +6332,6 @@ var DayTableMixin = FC.DayTableMixin = {
 
 };
 
-;;
 
 /* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -6631,7 +6599,7 @@ var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 			var col = this.colCoordCache.getHorizontalIndex(leftOffset);
 			var row = this.rowCoordCache.getVerticalIndex(topOffset);
 
-			if (row != null && col != null) {
+			if (row !== null && col !== null) {
 				return this.getCellHit(row, col);
 			}
 		}
@@ -6839,8 +6807,6 @@ var DayGrid = FC.DayGrid = Grid.extend(DayTableMixin, {
 	}
 
 });
-
-;;
 
 /* Event-rendering methods for the DayGrid class
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -7157,8 +7123,6 @@ function isDaySegCollision(seg, otherSegs) {
 function compareDaySegCols(a, b) {
 	return a.leftCol - b.leftCol;
 }
-
-;;
 
 /* Methods relate to limiting the number events for a given day on a DayGrid
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -7543,8 +7507,6 @@ DayGrid.mixin({
 
 });
 
-;;
-
 /* A component that renders one or more columns of vertical time slots
 ----------------------------------------------------------------------------------------------------------------------*/
 // We mixin DayTable, even though there is only a single row of days
@@ -7745,7 +7707,7 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 			var colIndex = colCoordCache.getHorizontalIndex(leftOffset);
 			var slatIndex = slatCoordCache.getVerticalIndex(topOffset);
 
-			if (colIndex != null && slatIndex != null) {
+			if (colIndex !== null && slatIndex !== null) {
 				var slatTop = slatCoordCache.getTopOffset(slatIndex);
 				var slatHeight = slatCoordCache.getHeight(slatIndex);
 				var partial = (topOffset - slatTop) / slatHeight; // floating point number between 0 and 1
@@ -8063,8 +8025,6 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 	}
 
 });
-
-;;
 
 /* Methods for rendering SEGMENTS, pieces of content that live on the view
  ( this file is no longer just for events )
@@ -8680,8 +8640,6 @@ function computeSlotSegCollisions(seg, otherSegs, results) {
 function isSlotSegCollision(seg1, seg2) {
 	return seg1.bottom > seg2.top && seg1.top < seg2.bottom;
 }
-
-;;
 
 /* An abstract class from which other views inherit from
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -10065,8 +10023,6 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 
 });
 
-;;
-
 View.mixin({
 
 	// range the view is formally responsible for.
@@ -10502,8 +10458,6 @@ View.mixin({
 
 });
 
-;;
-
 /*
 Embodies a div that has potential scrollbars
 */
@@ -10623,7 +10577,6 @@ var Scroller = FC.Scroller = Class.extend({
 
 });
 
-;;
 function Iterator(items) {
     this.items = items || [];
 }
@@ -10641,7 +10594,6 @@ Iterator.prototype.proxyCall = function(methodName) {
     return results;
 };
 
-;;
 
 /* Toolbar with buttons and title
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -10911,8 +10863,6 @@ function Toolbar(calendar, toolbarOptions) {
 	}
 
 }
-
-;;
 
 var Calendar = FC.Calendar = Class.extend({
 
@@ -11192,7 +11142,7 @@ var Calendar = FC.Calendar = Class.extend({
 	*/
 	initCurrentDate: function() {
 		// compute the initial ambig-timezone date
-		if (this.options.defaultDate != null) {
+		if (this.options.defaultDate !== null) {
 			this.currentDate = this.moment(this.options.defaultDate).stripZone();
 		}
 		else {
@@ -11374,10 +11324,10 @@ function Calendar_constructor(element, overrides) {
 			localeData._weekdaysShort = dayNamesShort;
 		}
 
-		if (firstDay == null && weekNumberCalculation === 'ISO') {
+		if (firstDay === null && weekNumberCalculation === 'ISO') {
 			firstDay = 1;
 		}
-		if (firstDay != null) {
+		if (firstDay !== null) {
 			var _week = createObject(localeData._week); // _week: { dow: # }
 			_week.dow = firstDay;
 			localeData._week = _week;
@@ -11796,7 +11746,7 @@ function Calendar_constructor(element, overrides) {
 			suggestedViewHeight = element.parent().height() - queryToolbarsHeight();
 		}
 		else {
-			suggestedViewHeight = Math.round(content.width() / Math.max(t.options.aspectRatio, .5));
+			suggestedViewHeight = Math.round(content.width() / Math.max(t.options.aspectRatio, 0.5));
 		}
 	}
 
@@ -12091,7 +12041,6 @@ function Calendar_constructor(element, overrides) {
 	t.initialize();
 }
 
-;;
 /*
 Options binding/triggering system.
 */
@@ -12154,8 +12103,6 @@ Calendar.mixin({
 	}
 
 });
-
-;;
 
 Calendar.defaults = {
 
@@ -12233,7 +12180,7 @@ Calendar.defaults = {
 	},
 
 	//eventResizableFromStart: false,
-	dragOpacity: .75,
+	dragOpacity: 0.75,
 	dragRevertDuration: 500,
 	dragScroll: true,
 	
@@ -12284,7 +12231,6 @@ Calendar.rtlDefaults = { // right-to-left defaults
 	}
 };
 
-;;
 
 var localeOptionHash = FC.locales = {}; // initialize and expose
 
@@ -12346,7 +12292,7 @@ FC.locale = function(localeCode, newFcOptions) {
 	// so no way to tell if this is an initialization or a default-setting.
 	momOptions = getMomentLocaleData(localeCode); // will fall back to en
 	$.each(momComputableOptions, function(name, func) {
-		if (fcOptions[name] == null) {
+		if (fcOptions[name] === null) {
 			fcOptions[name] = func(momOptions, fcOptions);
 		}
 	});
@@ -12465,7 +12411,7 @@ var instanceComputableOptions = {
 
 function populateInstanceComputableOptions(options) {
 	$.each(instanceComputableOptions, function(name, func) {
-		if (options[name] == null) {
+		if (options[name] === null) {
 			options[name] = func(options);
 		}
 	});
@@ -12481,8 +12427,6 @@ function getMomentLocaleData(localeCode) {
 // Initialize English by forcing computation of moment-derived options.
 // Also, sets it as the default.
 FC.locale('en', Calendar.englishDefaults);
-
-;;
 
 FC.sourceNormalizers = [];
 FC.sourceFetchers = [];
@@ -12901,7 +12845,7 @@ function EventManager() { // assumed to be a calendar
 
 	// if called with no arguments, removes all.
 	function removeEventSources(matchInputs) {
-		if (matchInputs == null) {
+		if (matchInputs === null) {
 			removeSpecificEventSources(sources, true); // isAll=true
 		}
 		else {
@@ -13136,7 +13080,7 @@ function EventManager() { // assumed to be a calendar
 		var eventID;
 		var i;
 
-		if (filter == null) { // null or undefined. remove all events
+		if (filter === null) { // null or undefined. remove all events
 			filter = function() { return true; }; // will always match
 		}
 		else if (!$.isFunction(filter)) { // an event ID
@@ -13166,7 +13110,7 @@ function EventManager() { // assumed to be a calendar
 		if ($.isFunction(filter)) {
 			return $.grep(cache, filter);
 		}
-		else if (filter != null) { // not null, not undefined. an event ID
+		else if (filter !== null) { // not null, not undefined. an event ID
 			filter += '';
 			return $.grep(cache, function(e) {
 				return e._id == filter;
@@ -13332,7 +13276,7 @@ function EventManager() { // assumed to be a calendar
 
 	// Ensures the allDay property exists and the timeliness of the start/end dates are consistent
 	function normalizeEventTimes(eventProps) {
-		if (eventProps.allDay == null) {
+		if (eventProps.allDay === null) {
 			eventProps.allDay = !(eventProps.start.hasTime() || (eventProps.end && eventProps.end.hasTime()));
 		}
 
@@ -13465,7 +13409,7 @@ function EventManager() { // assumed to be a calendar
 		if (newProps.end === undefined) {
 			newProps.end = event.end ? event.end.clone() : null;
 		}
-		if (newProps.allDay == null) { // is null or undefined?
+		if (newProps.allDay === null) { // is null or undefined?
 			newProps.allDay = event.allDay;
 		}
 		normalizeEventDates(newProps);
@@ -13732,7 +13676,7 @@ Calendar.prototype.isSpanAllowed = function(span, constraint, overlap, event) {
 	var peerOverlap;
 
 	// the range must be fully contained by at least one of produced constraint events
-	if (constraint != null) {
+	if (constraint !== null) {
 
 		// not treated as an event! intermediate data structure
 		// TODO: use ranges in the future
@@ -13804,7 +13748,7 @@ Calendar.prototype.constraintToEvents = function(constraintInput) {
 	}
 
 	if (typeof constraintInput === 'object') {
-		if (constraintInput.start != null) { // needs to be event-like input
+		if (constraintInput.start !== null) { // needs to be event-like input
 			return this.expandEvent(this.buildEventFromInput(constraintInput));
 		}
 		else {
@@ -13895,8 +13839,6 @@ Calendar.prototype.expandBusinessHourEvents = function(wholeDay, inputs, ignoreN
 	return events;
 };
 
-;;
-
 /* An abstract class for the "basic" views, as well as month view. Renders one or more rows of day cells.
 ----------------------------------------------------------------------------------------------------------------------*/
 // It is a manager for a DayGrid subcomponent, which does most of the heavy lifting.
@@ -13972,7 +13914,7 @@ var BasicView = FC.BasicView = View.extend({
 			else {
 				this.cellWeekNumbersVisible = false;
 				this.colWeekNumbersVisible = true;
-			};
+			}
 		}
 		this.dayGrid.numbersVisible = this.dayNumbersVisible ||
 			this.cellWeekNumbersVisible || this.colWeekNumbersVisible;
@@ -14320,8 +14262,6 @@ var basicDayGridMethods = {
 
 };
 
-;;
-
 /* A month view with day cells running in rows (one-per-week) and columns
 ----------------------------------------------------------------------------------------------------------------------*/
 
@@ -14363,7 +14303,6 @@ var MonthView = FC.MonthView = BasicView.extend({
 
 });
 
-;;
 
 fcViews.basic = {
 	'class': BasicView
@@ -14386,7 +14325,6 @@ fcViews.month = {
 		fixedWeekCount: true
 	}
 };
-;;
 
 /* An abstract class for all agenda-related views. Displays one more columns with time slots running vertically.
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -14928,8 +14866,6 @@ var agendaDayGridMethods = {
 
 };
 
-;;
-
 var AGENDA_ALL_DAY_EVENT_LIMIT = 5;
 
 // potential nice values for the slot-duration and interval-duration
@@ -14960,7 +14896,6 @@ fcViews.agendaWeek = {
 	type: 'agenda',
 	duration: { weeks: 1 }
 };
-;;
 
 /*
 Responsible for the scroller, and forwarding event-related actions into the "grid"
@@ -15240,8 +15175,6 @@ var ListViewGrid = Grid.extend({
 
 });
 
-;;
-
 fcViews.list = {
 	'class': ListView,
 	buttonTextKey: 'list', // what to lookup in locale files
@@ -15284,8 +15217,6 @@ fcViews.listYear = {
 		listDayAltFormat: 'dddd' // day-of-week is nice-to-have
 	}
 };
-
-;;
 
 return FC; // export for Node/CommonJS
 });
