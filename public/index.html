@@ -8,9 +8,11 @@
     <title>Calendar</title>
     <link rel='stylesheet' href='css/fullcalendar.css' />
     <link rel='stylesheet' href='css/main.css' />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src='js/lib/jquery.min.js'></script>
     <script src='js/lib/moment.min.js'></script>
     <script src='js/mcalendar.js'></script>
+    <script src='js/lib/jquery-ui.min.js'></script>
     <script src='js/app.js'></script>
 </head>
 
@@ -30,16 +32,17 @@
                 </p>
                 <p>
                     <input type="submit" name="login" value="Log In" />
-                    <br />
-                    Or
+                    <br /> Or
                     <input type="submit" name="register" value="Register" />
-                    <br />
-                    Or
+                    <br /> Or
                     <input type="submit" name="guest" value="Continue as Guest" />
                 </p>
             </form>
         </header>
         <div id='calendar'></div>
+        <div id="dialog" title="Basic dialog">
+            <p>Dialog.</p>
+        </div>
     </div>
 </body>
 
