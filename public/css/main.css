@@ -2,3 +2,13 @@
     width: 100%;
     height: 200px !important;
 }
+
+#dialog{
+    display: none;
+}
+
+.fb-share-button{
+    position: absolute;
+    margin-top: -300px;
+    margin-left: 600px;
+}
