@@ -5,6 +5,10 @@ setTimeout(function () {
             dayClick: function (date) {
                 $(function () {
                     $("#dialog").dialog();
+
+                    //TODO: Change to jquery
+                    let el = document.getElementById("datepicker");
+                    el.value = date.format('D/M/YYYY');
                 });
             }
         });
