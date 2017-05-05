@@ -9,7 +9,7 @@
     <link rel='stylesheet' href='css/fullcalendar.css' />
     <link rel='stylesheet' href='css/main.css' />
     <link rel="stylesheet" href="css/jquery-ui.css">
-     <!-- TODO: Fix paths to be from server -->
+    <!-- TODO: Fix paths to be from server -->
     <script src='../node_modules/jquery/dist/jquery.js'></script>
     <script src='js/lib/jquery-ui.min.js'></script>
     <script src='../node_modules/moment/moment.js'></script>
@@ -43,11 +43,11 @@
         <div id='calendar'></div>
         <!-- TODO: Extract to Handlebars template -->
         <div id="dialog" title="Add Event">
-            <p>Name
-                <input id='eventName' type="text">
+            <p>
+                <input id='eventName' type="text" placeholder="e.g. C# Exam at Telerik Academy">
             </p>
-            <p>Date:
-                <input type="text" id="datepicker">
+            <p>
+                <input id="datepicker" type="text">
             </p>
             <p>
                 <button id='createEventBtn'>Create</button>
