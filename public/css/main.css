@@ -7,31 +7,8 @@
     display: none;
 }
 
-.fb-share-button{
-    position: absolute;
-    margin-top: -300px;
-    margin-left: 600px;
-}
-
-.fb-xfbml-parse-ignore {
-    background:#3B5998;
-    text-decoration:none;
-    color:#fff;
-    font-family:Arial, sans-serif;
-    font-size:11px;
-    font-weight:bold;
-    padding:3px 5px;
-    border:1px solid #aaa;
-    border-radius:3px;
-    cursor:default;
-}
-
-.fb-xfbml-parse-ignore:hover {
-    background-color: darkblue;
-    border-color:#888;
-    box-shadow:0 0 2px #ccc;
-}
-
-.fb-xfbml-parse-ignore:active {
-    vertical-align:-1px;
+#fb-btn{
+    position: fixed;
+    margin-top: -197px;
+    margin-left: 110px;
 }
