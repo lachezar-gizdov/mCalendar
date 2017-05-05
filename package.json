@@ -1,0 +1,17 @@
+{
+    "name": "my-calendar",
+    "version": "0.2.0",
+    "description": "Team-Manticore-Project",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "Team Manticore",
+    "license": "MIT",
+    "dependencies": {
+        "jquery": "^3.2.1",
+        "jquery-ui": "^1.12.1",
+        "handlebars": "^4.0.8",
+        "moment": "^2.18.1"
+    }
+}
