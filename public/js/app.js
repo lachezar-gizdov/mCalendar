@@ -24,8 +24,7 @@ $(document).ready(function () {
                     id: ID(),
                     title: "event",
                     start: date.format('YYYY/MM/DD'),
-                    allDay: true,
-                    color: "#f00"
+                    allDay: true
                 };
 
                 $('#calendar').fullCalendar('renderEvent', event, true);

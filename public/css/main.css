@@ -19,9 +19,9 @@ td {
 }
 
 #calendar {
-	filter: blur(5px) !important;
-  	-webkit-filter: blur(5px) !important;			
-  	pointer-events: none !important; /* This disables mouse events while the calendar is blurred */
+   filter: blur(5px) !important;
+  -webkit-filter: blur(5px) !important;			
+  pointer-events: none !important; /* This disables mouse events while the calendar is blurred */
 }
 
 #dialog {
@@ -46,22 +46,17 @@ td {
 	border: 0px solid black !important;
 }
 
-/*
-
 #fb-btn{
     position: absolute;
-    margin-top: -197px;
-    margin-left: 110px;
+    margin-top: -680px;
+    margin-left: 150px;
 }
 
 #twitter-wjs{
     position: absolute;
-    margin-top: -197px;
-    margin-left: 190px;
+    margin-top: -680px;
+    margin-left: 230px;
 }
-
-*/
-
 
 #eventName, #datepicker, #location {
     width: 100%;
