@@ -88,6 +88,7 @@
                     <input id='username' type="text" name="" placeholder="Your Email">
                     <input id='password' type="password" placeholder="Your Password">
                     <input class="fc-button fc-state-default" type="submit" name="login" value="Log In" />
+                    <input class="fc-button fc-state-default" type="submit" name="logout" value="Log Out" />
                 </p>
                 <p>
                     <input class="fc-button fc-state-default" type="submit" name="register" value="Register" />
@@ -101,15 +102,59 @@
         <div id='calendar'></div>
         <!-- TODO: Extract to Handlebars template -->
         <div id="dialog" title="Add Event">
-            <p>
-                <input id='eventName' type="text" placeholder="e.g. C# Exam at Telerik">
-            </p>
-            <p>
-                <input id="datepicker" type="text">
-            </p>
-            <p>
-                <button id='createEventBtn'>Create</button>
-            </p>
+            <form name="addEventForm">
+                <p>
+                    <input id='eventName' type="text" placeholder="e.g. C# Exam at Telerik">
+                </p>
+                <p>
+                    <input id="datepicker" type="text">
+                </p>
+                <p>
+                    <div class="expandable">
+                        <div class="head"><span>Expand</span>
+
+                        </div>
+                        <div class="options">
+                            <ul>
+                                <li>This is just some random content.</li>
+                                <li>This is just some random content.</li>
+                                <li>This is just some random content.</li>
+                                <li>This is just some random content.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--<div class="expandable">
+                        <div class="header">
+                            <span>MoreOptions</span>
+                        </div>
+                        <div class="expd">
+                            <ul>
+                                <li>
+                                    <label>
+                                    <input type="checkbox" name="allday" value="value">
+                                    All Day Event
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                    <input type="checkbox" name="email-alert" value="value">
+                                    Repeat Event
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                    <input type="checkbox" name="email-alert" value="value">
+                                    Alert me via Email
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>-->
+                </p>
+                <p>
+                    <button id='createEventBtn'>Create</button>
+                </p>
+            </form>
         </div>
         <div id="fb-btn" class="fb-share-button" data-href="https://github.com/iDonev/mCalendar" data-layout="button_count" data-mobile-iframe="true">
             <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/iDonev/mCalendar">

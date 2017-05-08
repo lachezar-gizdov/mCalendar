@@ -1,1 +1,36 @@
-{{!-- TODO: Make the Add Event Dialog Template --}}
+<div id="dialog" title="Add Event">
+    <form name="addEventForm">
+        <p>
+            <input id='eventName' type="text" placeholder="e.g. C# Exam at Telerik">
+        </p>
+        <p>
+            <input id="datepicker" type="text">
+        </p>
+        <p>
+            <div>
+                More Options
+                <div>
+                    <label>
+                            <input type="checkbox" name="allday" value="value">
+                            AllDay Event
+                        </label>
+                </div>
+                <div>
+                    <label>
+                            <input type="checkbox" name="email-alert" value="value">
+                            Alert me via Email
+                        </label>
+                </div>
+                <div>
+                    <label>
+                            <input type="checkbox" name="email-alert" value="value">
+                            Repeat Event
+                        </label>
+                </div>
+            </div>
+        </p>
+        <p>
+            <button id='createEventBtn'>Create</button>
+        </p>
+    </form>
+</div>

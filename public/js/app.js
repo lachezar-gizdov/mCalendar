@@ -1,29 +1,34 @@
-setTimeout(function () {
-    $(document).ready(function () {
-        $('#calendar').fullCalendar({
-            aspectRatio: 2,
-            firstDay: 1,
-            edittable: true,
-            droppable: true,
-            dayClick: function (date) {
-                $(function () {
-                    // $("#dialog").dialog();
+var ID = function () {
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
 
-                    // //TODO: Change to jquery
-                    // let el = document.getElementById("datepicker");
-                    // el.value = date.format('D/M/YYYY');
+$(document).ready(function () {
+    $('#calendar').fullCalendar({
+        aspectRatio: 2,
+        firstDay: 1,
+        droppable: true,
+        eventLimit: true,
+        dayClick: function (date) {
+            $(function () {
+                $("#dialog").dialog();
 
-                    var event = {
-                        title: "event",
-                        start: date.format('YYYY/M/D/')
-                    };
+                //TODO: Change to jquery
+                let el = document.getElementById("datepicker");
+                el.value = date.format('D/M/YYYY');
 
-                    $('#calendar').fullCalendar('renderEvent', event, true);
-                });
-            },
-        });
+                let event = {
+                    id: ID(),
+                    title: "event",
+                    start: date.format('YYYY/MM/DD'),
+                    allDay: true,
+                    color: "#f00"
+                };
+
+                $('#calendar').fullCalendar('renderEvent', event, true);
+            });
+        },
     });
-}, 500);
+});
 
 (function (d, s, id) {
     var js,
@@ -63,12 +68,19 @@ window.twttr = (function (d, s, id) {
     return t;
 }(document, "script", "twitter-wjs"));
 
+$(".head").click(function () {
 
-(function () {
-    var event = {
-        title: "event",
-        start: "2017-05-12"
-    };
+    $head = $(this);
+    //getting the next element
+    $options = $head.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $options.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        $head.text(function () {
+            //change text based on condition
+            return $options.is(":visible") ? "Collapse" : "Expand";
+        });
+    });
 
-    $('#calendar').fullCalendar('renderEvent', event, true);
-}());
+});
