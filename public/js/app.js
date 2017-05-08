@@ -14,7 +14,7 @@ $(document).ready(function () {
 
                 //TODO: Change to jquery
                 let el = document.getElementById("datepicker");
-                el.value = date.format('D/M/YYYY');
+                el.value = date.format('YYYY/MM/DD');
 
                 let event = {
                     id: ID(),
@@ -67,20 +67,3 @@ window.twttr = (function (d, s, id) {
 
     return t;
 }(document, "script", "twitter-wjs"));
-
-$(".head").click(function () {
-
-    $head = $(this);
-    //getting the next element
-    $options = $head.next();
-    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-    $options.slideToggle(500, function () {
-        //execute this after slideToggle is done
-        //change text of header based on visibility of content div
-        $head.text(function () {
-            //change text based on condition
-            return $options.is(":visible") ? "Collapse" : "Expand";
-        });
-    });
-
-});
