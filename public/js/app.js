@@ -67,3 +67,20 @@ window.twttr = (function (d, s, id) {
 
     return t;
 }(document, "script", "twitter-wjs"));
+
+$(".head").click(function () {
+
+    $head = $(this);
+    //getting the next element
+    $options = $head.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $options.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        $head.text(function () {
+            //change text based on condition
+            return $options.is(":visible") ? "Collapse" : "Expand";
+        });
+    });
+
+});
