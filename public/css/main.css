@@ -8,7 +8,13 @@
 }
 
 #fb-btn{
-    position: fixed;
+    position: absolute;
     margin-top: -197px;
     margin-left: 110px;
+}
+
+#twitter-wjs{
+    position: absolute;
+    margin-top: -197px;
+    margin-left: 200px;
 }
