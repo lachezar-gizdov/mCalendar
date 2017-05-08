@@ -1,3 +1,7 @@
+var ID = function () {
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
+
 setTimeout(function () {
     $(document).ready(function () {
         $('#calendar').fullCalendar({
@@ -13,9 +17,11 @@ setTimeout(function () {
                     // let el = document.getElementById("datepicker");
                     // el.value = date.format('D/M/YYYY');
 
-                    var event = {
+                    let event = {
+                        id: ID(),
                         title: "event",
-                        start: date.format('YYYY/M/D/')
+                        start: date.format('YYYY/M/D/'),
+                        allDay: true
                     };
 
                     $('#calendar').fullCalendar('renderEvent', event, true);
@@ -23,7 +29,7 @@ setTimeout(function () {
             },
         });
     });
-}, 500);
+}, 0);
 
 (function (d, s, id) {
     var js,
