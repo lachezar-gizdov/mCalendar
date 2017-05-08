@@ -23,16 +23,30 @@ td {
   -webkit-filter: blur(5px) !important;			
   pointer-events: none !important; /*This disables mouse events while the calendar is blurred */
 }
-	
+
 #dialog {
 	display: none;
 }       
 
-/*
-#calendar{
-    width: 100%;
-    height: 200px;
+.modal-content {
+	background: rgba(255, 255, 255, 0.65) !important;
 }
+
+.row {
+	background: rgba(255, 255, 255, 0.0) !important;
+}
+
+.well {
+	background: rgba(255, 255, 255, 0.0) !important;
+	border: 0px solid black !important;
+	box-shadow: none !important;
+}
+
+.modal-header {
+	border: 0px solid black !important;
+}
+
+/*
 
 #fb-btn{
     position: absolute;
@@ -45,52 +59,7 @@ td {
     margin-top: -197px;
     margin-left: 190px;
 }
-*/
 
-/*
-		#calendar {
-			background-color: #7c7c7c;
-		  display: block;
-		  filter: blur(5px);
-		  -webkit-filter: blur(5px);
-		  height: 800px;
-		  left: 0;
-		  position: absolute;
-		  right: 0;
-		  z-index: 1;
-		}
-*/
-
-/*
-		#header {
-			background-color: white;
-		//  background: rgba(255, 255, 255, 0.35);
-		    border-radius: 3px;
-		    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-		    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-		    top: 100px;
-		    left: 0;
-		    display: inline-block;
-		    
-		    margin-left: 20px;
-		    margin-right: 20px;
-		    right: 0;
-		    
-		    padding: 0 10px;
-		}   
-*/
-
-/*
-
-		* {
-			box-sizing: border-box;
-		}
-*/
-
-/*
-		td {
-			background: rgba(255, 255, 255, 0.35);
-		}
 */
 
 
