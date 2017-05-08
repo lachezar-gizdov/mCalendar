@@ -2,35 +2,33 @@ var ID = function () {
     return '_' + Math.random().toString(36).substr(2, 9);
 };
 
-setTimeout(function () {
-    $(document).ready(function () {
-        $('#calendar').fullCalendar({
-            aspectRatio: 2,
-            firstDay: 1,
-            droppable: true,
-            eventLimit: true,
-            dayClick: function (date) {
-                $(function () {
-                    $("#dialog").dialog();
+$(document).ready(function () {
+    $('#calendar').fullCalendar({
+        aspectRatio: 2,
+        firstDay: 1,
+        droppable: true,
+        eventLimit: true,
+        dayClick: function (date) {
+            $(function () {
+                $("#dialog").dialog();
 
-                    //TODO: Change to jquery
-                    let el = document.getElementById("datepicker");
-                    el.value = date.format('D/M/YYYY');
+                //TODO: Change to jquery
+                let el = document.getElementById("datepicker");
+                el.value = date.format('D/M/YYYY');
 
-                    let event = {
-                        id: ID(),
-                        title: "event",
-                        start: date.format('YYYY/MM/DD'),
-                        allDay: true,
-                        color: "#f00"
-                    };
+                let event = {
+                    id: ID(),
+                    title: "event",
+                    start: date.format('YYYY/MM/DD'),
+                    allDay: true,
+                    color: "#f00"
+                };
 
-                    $('#calendar').fullCalendar('renderEvent', event, true);
-                });
-            },
-        });
+                $('#calendar').fullCalendar('renderEvent', event, true);
+            });
+        },
     });
-}, 0);
+});
 
 (function (d, s, id) {
     var js,
