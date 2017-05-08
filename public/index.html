@@ -4,19 +4,21 @@
 <head>
     <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
+	    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calendar</title>
     <link rel='stylesheet' href='css/fullcalendar.css' />
     <link rel='stylesheet' href='css/main.css' />
     <link rel="stylesheet" href="css/jquery-ui.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- TODO: Fix paths to be from server -->
     <script src='js/lib/jquery-ui.min.js'></script>
-    <script src='../node_modules/moment/moment.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
     <script src='js/mcalendar.js'></script>
-    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
     <script src="../node_modules/requirejs/require.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
     <script src='js/app.js'></script>
 
     <style>
@@ -43,11 +45,62 @@
             filter: blur(5px);
             -webkit-filter: blur(5px);
         }
-        /*
+    </style>
+        
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src='js/lib/jquery-ui.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>    
+	<script src='js/mcalendar.js'></script>
+    <script src='js/app.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+	    $('docucment').ready(() => {
+		    $('#login').on('hidden.bs.modal', () => {$('#login').modal('show')});	    
+		    $('#login').modal('show')
+		    });
+		    
+	    </script>
+	<style>
+		
+		body {
+			background: #757F9A;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
+
+		#login{
+			display: none;
+		}
+		
+/*
+		td {
+			background: rgba(255, 255, 255, 0.35);
+		}
+*/
+		
+		#header {
+			border: 3px solid red;
+			z-index: 2;
+			position: absolute;
+		}
+		
+		#calendar {
+		  filter: blur(5px) !important;
+		  -webkit-filter: blur(5px) !important;			
+		  pointer-events: none !important; /* This disables mouse events while the calendar is blurred */
+		}
+/*
+
 		* {
 			box-sizing: border-box;
 		}
+*/
 	
+		#dialog {
+			display: none;
+		}
+	
+/*
 		#calendar {
 			background-color: #7c7c7c;
 		  display: block;
@@ -60,7 +113,8 @@
 		  z-index: 1;
 		}
 */
-        /*
+
+/*
 		#header {
 			background-color: white;
 		//  background: rgba(255, 255, 255, 0.35);
@@ -82,26 +136,86 @@
 </head>
 
 <body>
+  <div class="modal" id="login">
+	 <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Login to MyCalendar</h4>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well">
+                          <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Username</label>
+                                  <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" name="remember" id="remember"> Remember login
+                                  </label>
+                                  <p class="help-block">(if this is a private computer)</p>
+                              </div>
+                              <button type="submit" class="btn btn-success btn-block">Login</button>
+                              <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-xs-6">
+                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> See all your orders</li>
+                          <li><span class="fa fa-check text-success"></span> Fast re-order</li>
+                          <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+                          <li><span class="fa fa-check text-success"></span> Fast checkout</li>
+                          <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li>
+                          <li><a href="/read-more/"><u>Read more</u></a></li>
+                      </ul>
+                      <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+<!--
+	<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog" id="login">
+		<div class="loginmodal-container">
+			     <h1>My Calendar App</h1>
+	            <form name="loginForm">
+	                <p>
+	                    <input id='username' type="text" name="" placeholder="Your Email">
+	                    <input id='password' type="password" placeholder="Your Password">
+		                    <input class="fc-button fc-state-default" type="submit" name="login" value="Log In" />
+	                    <input class="fc-button fc-state-default" type="submit" name="logout" value="Log Out" />
+	                </p>
+	                <p>
+	                    <button class="btn btn-primary fc-button fc-state-default" type="submit" name="register">Register</button>
+	                    <span>
+	                          Or
+	                    </span>
+	                    <button class="btn btn-outline-success fc-button fc-state-default" type="submit" name="guest" value="">Continue as a Guest</button> 
+	                </p>
+	            </form>
+			</div>
+		</div>
+	</div>
+-->
     <!-- TODO: Update the tags to HTML5 semantic standards -->
     <div class='root'>
         <header id='header'>
-            <h1>My Calendar App</h1>
-            <form name="loginForm">
-                <p>
-                    <input id='username' type="text" name="" placeholder="Your Email">
-                    <input id='password' type="password" placeholder="Your Password">
-                    <input class="fc-button fc-state-default" type="submit" name="login" value="Log In" />
-                    <input class="fc-button fc-state-default" type="submit" name="logout" value="Log Out" />
-                </p>
-                <p>
-                    <input class="fc-button fc-state-default" type="submit" name="register" value="Register" />
-                    <span>
-                          Or
-                    </span>
-                    <input class="fc-button fc-state-default" type="submit" name="guest" value="Continue as Guest" />
-                </p>
-            </form>
-        </header>
+               </header>
         <div id='calendar'></div>
         <!-- TODO: Extract to Handlebars template -->
         <div id="dialog" title="Add Event">
