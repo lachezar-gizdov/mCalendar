@@ -18,6 +18,16 @@ td {
     position: absolute;
 }
 
+.modal-title {
+	text-align: center !important;
+	color: #5c6a90 !important;
+	font-family: Helvetica-Neue !important;
+	font-variant: small-caps !important;
+}
+h1.modal-title {
+	font-size: 50px !important;
+}
+
 #calendar {
 	filter: blur(5px) !important;
   	-webkit-filter: blur(5px) !important;			
