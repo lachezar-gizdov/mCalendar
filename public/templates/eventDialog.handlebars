@@ -1,14 +1,16 @@
-<form name="addEventForm">
-    <p>
-        <input id='eventName' type="text" placeholder="e.g. C# Exam at Telerik">
-    </p>
-    <p>
-        <input id="datepicker" type="text">
-    </p>
-    <p>
-        <div id="accordion">
-            <p>More Options</p>
-            <div>
+<div id="dialog" title="View Event">
+    <form name="viewEventForm">
+        <p>
+            <input id='eventName' type="text" placeholder="e.g. C# Exam at Telerik">
+        </p>
+        <p>
+            <input id="datepicker" type="text">
+        </p>
+        <p>
+            <input id="location" type="text" placeholder="e.g. Aleksandur Malinov str.">
+        </p>
+        <p>
+            <div class="options">
                 <p>
                     <label>
                         <input type="checkbox" name="allday" value="value">
@@ -18,7 +20,7 @@
                 <p>
                     <label>
                         <input type="checkbox" name="email-alert" value="value">
-                         <span>Repeat Event</span>
+                        <span>Repeat Event</span>
                     </label>
                 </p>
                 <p>
@@ -28,7 +30,7 @@
                     </label>
                 </p>
             </div>
-        </div>
-    </p>
-    <button id='createEventBtn'>Create</button>
-</form>
+        </p>
+        <button id='deleteEventBtn'>Delete</button>
+    </form>
+</div>
