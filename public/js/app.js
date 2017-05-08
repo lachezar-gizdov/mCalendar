@@ -11,17 +11,18 @@ setTimeout(function () {
             droppable: true,
             dayClick: function (date) {
                 $(function () {
-                    // $("#dialog").dialog();
+                    $("#dialog").dialog();
 
-                    // //TODO: Change to jquery
-                    // let el = document.getElementById("datepicker");
-                    // el.value = date.format('D/M/YYYY');
+                    //TODO: Change to jquery
+                    let el = document.getElementById("datepicker");
+                    el.value = date.format('D/M/YYYY');
 
                     let event = {
                         id: ID(),
                         title: "event",
-                        start: date.format('YYYY/M/D/'),
-                        allDay: true
+                        start: date.format('YYYY/MM/DD'),
+                        allDay: true,
+                        color: "#f00"
                     };
 
                     $('#calendar').fullCalendar('renderEvent', event, true);
@@ -68,13 +69,3 @@ window.twttr = (function (d, s, id) {
 
     return t;
 }(document, "script", "twitter-wjs"));
-
-
-(function () {
-    var event = {
-        title: "event",
-        start: "2017-05-12"
-    };
-
-    $('#calendar').fullCalendar('renderEvent', event, true);
-}());
