@@ -2,6 +2,7 @@ body {
     background: #757F9A; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: Helvetica-Neue !important;
 }
 
 #login{
@@ -18,20 +19,60 @@ td {
     position: absolute;
 }
 
+.modal-body {
+	margin: 0 auto !important;
+}
+
+.form-group label {
+	margin: 0 auto !important;
+}
+
+.form-group input {
+	margin: 0 auto !important;
+}
+
 .modal-title {
 	text-align: center !important;
 	color: #5c6a90 !important;
-	font-family: Helvetica-Neue !important;
 	font-variant: small-caps !important;
 }
+
 h1.modal-title {
 	font-size: 50px !important;
 }
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #5c6a90 !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #5c6a90 !important;
+   opacity: 1 !important;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #5c6a90 !important;
+   opacity: 1 !important;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #5c6a90 !important;
+}
+
+.btn {
+	width: 60% !important;
+}
+
+input {
+	width: 60% !important;
+	color: #5c6a90 !important;
+}
+
+.additional-options {
+	font-variant: small-caps;
+}
+
 #calendar {
-    filter: blur(5px) !important;
-    -webkit-filter: blur(5px) !important;			
-    pointer-events: none !important; /* This disables mouse events while the calendar is blurred */
+   filter: blur(5px) !important;
+  -webkit-filter: blur(5px) !important;			
+  pointer-events: none !important; /*This disables mouse events while the calendar is blurred */
 }
 
 #dialog {
@@ -56,23 +97,32 @@ h1.modal-title {
 	border: 0px solid black !important;
 }
 
+/*
+
 #fb-btn{
-    position: relative;
-    margin-top: 0px;
-    margin-left: 0px;
+    position: absolute;
+    margin-top: -197px;
+    margin-left: 110px;
 }
 
 #twitter-wjs{
-    position: relative;
-    margin-top: 0px;
-    margin-left: 0px;
+    position: absolute;
+    margin-top: -197px;
+    margin-left: 190px;
 }
 
-#eventName, #datepicker, #location {
+*/
+
+
+#eventName{
     width: 100%;
 }
 
-#createEventBtn, #deleteEventBtn{
+#datepicker{
+    width: 100%;
+}
+
+#createEventBtn{
     width: 102%;
 }
 
