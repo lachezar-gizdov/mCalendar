@@ -2,7 +2,15 @@ var ID = function () {
     return '_' + Math.random().toString(36).substr(2, 9);
 };
 
+
+/*
+	    $('docucment').ready(() => {
+
+		});
+*/
 $(document).ready(function () {
+    $('#login').on('hidden.bs.modal', () => {$('#login').modal('show')});	    
+    $('#login').modal('show')	
     $('#calendar').fullCalendar({
         aspectRatio: 2,
         firstDay: 1,
