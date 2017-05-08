@@ -22,24 +22,6 @@
 <<<<<<< HEAD
 */
 
-.expandable {
-    width: 100%;
-    border: 1px solid #d3d3d3;
-}
-.expandable div {
-    width: 100%;
-}
-.expandable .head {
-    background-color:#d3d3d3;
-    padding: 2px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.expandable .options {
-    display: none;
-    padding : 5px;
-}
-
 #eventName{
     width: 100%;
 }
@@ -50,4 +32,10 @@
 
 #createEventBtn{
     width: 102%;
+}
+
+.options ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,35 +11,36 @@
     <link rel='stylesheet' href='css/main.css' />
     <link rel="stylesheet" href="css/jquery-ui.css">
     <!-- TODO: Fix paths to be from server -->
-    <script src='../node_modules/jquery/dist/jquery.js'></script>
     <script src='js/lib/jquery-ui.min.js'></script>
     <script src='../node_modules/moment/moment.js'></script>
     <script src='js/mcalendar.js'></script>
     <script src='js/app.js'></script>
-    
-	<style>
-		
-		body {
-			background: #757F9A;  /* fallback for old browsers */
-			background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
-			background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-		}
-		
-		td {
-			background: rgba(255, 255, 255, 0.35);
-		}
-		
-		#header {
-			border: 3px solid red;
-			z-index: 2;
-			position: absolute;
-		}
-		
-		#calendar {
-		  filter: blur(5px);
-		  -webkit-filter: blur(5px);			
-		}
-/*
+
+    <style>
+        body {
+            background: #757F9A;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #D7DDE8, #757F9A);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        td {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        #header {
+            border: 3px solid red;
+            z-index: 2;
+            position: absolute;
+        }
+
+        #calendar {
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        }
+        /*
 		* {
 			box-sizing: border-box;
 		}
@@ -56,8 +57,7 @@
 		  z-index: 1;
 		}
 */
-		
-/*
+        /*
 		#header {
 			background-color: white;
 		//  background: rgba(255, 255, 255, 0.35);
@@ -75,8 +75,7 @@
 		    padding: 0 10px;
 		}   
 */
-		
-	</style>
+    </style>
 </head>
 
 <body>
@@ -111,62 +110,52 @@
                     <input id="datepicker" type="text">
                 </p>
                 <p>
-                    <div class="expandable">
-                        <div class="head"><span>Expand</span>
-
-                        </div>
-                        <div class="options">
-                            <ul>
-                                <li>This is just some random content.</li>
-                                <li>This is just some random content.</li>
-                                <li>This is just some random content.</li>
-                                <li>This is just some random content.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--<div class="expandable">
-                        <div class="header">
-                            <span>MoreOptions</span>
-                        </div>
-                        <div class="expd">
-                            <ul>
-                                <li>
-                                    <label>
+                    <div class="options">
+                        More Options
+                        <ul>
+                            <li>
+                                <label>
                                     <input type="checkbox" name="allday" value="value">
-                                    All Day Event
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
+                                    <span>
+                                        All Day Event
+                                    </span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
                                     <input type="checkbox" name="email-alert" value="value">
-                                    Repeat Event
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
+                                    <span>
+                                        Repeat Event
+                                    </span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
                                     <input type="checkbox" name="email-alert" value="value">
-                                    Alert me via Email
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>-->
-                </p>
-                <p>
-                    <button id='createEventBtn'>Create</button>
-                </p>
-            </form>
+                                    <span>
+                                        Alert me via Email
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
         </div>
-        <div id="fb-btn" class="fb-share-button" data-href="https://github.com/iDonev/mCalendar" data-layout="button_count" data-mobile-iframe="true">
-            <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/iDonev/mCalendar">
-		</a>
-        </div>
-        <div id="twitter-wjs">
-            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=My%20Calendar%20App">Tweet</a>
-        </div>
+        </p>
+        <p>
+            <button id='createEventBtn'>Create</button>
+        </p>
+        </form>
     </div>
-    
-<!--
+    <div id="fb-btn" class="fb-share-button" data-href="https://github.com/iDonev/mCalendar" data-layout="button_count" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/iDonev/mCalendar">
+		</a>
+    </div>
+    <div id="twitter-wjs">
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=My%20Calendar%20App">Tweet</a>
+    </div>
+    </div>
+
+    <!--
     <script>
 	$('#header').animate({
   height: 200,
