@@ -7,8 +7,8 @@ setTimeout(function () {
         $('#calendar').fullCalendar({
             aspectRatio: 2,
             firstDay: 1,
-            edittable: true,
             droppable: true,
+            eventLimit: true,
             dayClick: function (date) {
                 $(function () {
                     $("#dialog").dialog();
