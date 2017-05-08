@@ -2,19 +2,28 @@ setTimeout(function () {
     $(document).ready(function () {
         $('#calendar').fullCalendar({
             aspectRatio: 2,
+            firstDay: 1,
+            edittable: true,
+            droppable: true,
             dayClick: function (date) {
                 $(function () {
-                    $("#dialog").dialog();
+                    // $("#dialog").dialog();
 
-                    //TODO: Change to jquery
-                    let el = document.getElementById("datepicker");
-                    el.value = date.format('D/M/YYYY');
+                    // //TODO: Change to jquery
+                    // let el = document.getElementById("datepicker");
+                    // el.value = date.format('D/M/YYYY');
+
+                    var event = {
+                        title: "event",
+                        start: date.format('YYYY/M/D/')
+                    };
+
+                    $('#calendar').fullCalendar('renderEvent', event, true);
                 });
-            }
+            },
         });
-
     });
-}, 1500);
+}, 500);
 
 (function (d, s, id) {
     var js,
@@ -40,7 +49,7 @@ window.twttr = (function (d, s, id) {
     if (d.getElementById(id)) {
         return t;
     }
-    
+
     js = d.createElement(s);
     js.id = id;
     js.src = "https://platform.twitter.com/widgets.js";
@@ -53,3 +62,13 @@ window.twttr = (function (d, s, id) {
 
     return t;
 }(document, "script", "twitter-wjs"));
+
+
+(function () {
+    var event = {
+        title: "event",
+        start: "2017-05-12"
+    };
+
+    $('#calendar').fullCalendar('renderEvent', event, true);
+}());

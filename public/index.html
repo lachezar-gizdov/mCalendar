@@ -24,19 +24,16 @@
             <h1>My Calendar App</h1>
             <form name="loginForm">
                 <p>
-                    Enter Your Username:
-                    <input id='username' type="text" name="" placeholder="Username">
+                    <input id='username' type="text" name="" placeholder="Your Email">
+                    <input id='password' type="password" placeholder="Your Password">
+                    <input class="fc-button fc-state-default" type="submit" name="login" value="Log In" />
                 </p>
                 <p>
-                    Enter Your Password:
-                    <input id='password' type="password" placeholder="Password">
-                </p>
-                <p>
-                    <input type="submit" name="login" value="Log In" />
-                    <br /> Or
-                    <input type="submit" name="register" value="Register" />
-                    <br /> Or
-                    <input type="submit" name="guest" value="Continue as Guest" />
+                    <input class="fc-button fc-state-default" type="submit" name="register" value="Register" />
+                    <span>
+                          Or
+                    </span>
+                    <input class="fc-button fc-state-default" type="submit" name="guest" value="Continue as Guest" />
                 </p>
             </form>
         </header>
