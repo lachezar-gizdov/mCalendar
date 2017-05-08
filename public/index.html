@@ -10,11 +10,13 @@
     <link rel='stylesheet' href='css/fullcalendar.css' />
     <link rel='stylesheet' href='css/main.css' />
     <link rel="stylesheet" href="css/jquery-ui.css">
+
     <!-- TODO: Fix paths to be from server -->
     <script src='js/lib/jquery-ui.min.js'></script>
     <script src='../node_modules/moment/moment.js'></script>
     <script src='js/mcalendar.js'></script>
-    <script src="../node_modules/handlebars/dist/handlebars"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="../node_modules/requirejs/require.js"></script>
     <script src='js/app.js'></script>
 
     <style>
@@ -111,26 +113,28 @@
                     <input id="datepicker" type="text">
                 </p>
                 <p>
-                    <div class="options">
-                        <div>More Options</div>
-                        <p>
-                            <label>
+                    <div id="accordion">
+                        <p>More Options</p>
+                        <div>
+                            <p>
+                                <label>
                                 <input type="checkbox" name="allday" value="value">
                                 <span>All Day Event</span>
                             </label>
-                        </p>
-                        <p>
-                            <label>
+                            </p>
+                            <p>
+                                <label>
                                 <input type="checkbox" name="email-alert" value="value">
                                 <span>Repeat Event</span>
                             </label>
-                        </p>
-                        <p>
-                            <label>
+                            </p>
+                            <p>
+                                <label>
                                 <input type="checkbox" name="email-alert" value="value">
                                 <span>Alert me via Email</span>
                             </label>
-                        </p>
+                            </p>
+                        </div>
                     </div>
                 </p>
                 <button id='createEventBtn'>Create</button>

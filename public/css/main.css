@@ -4,10 +4,6 @@
     height: 200px;
 }
 
-#dialog{
-    display: none;
-}
-
 #fb-btn{
     position: absolute;
     margin-top: -197px;
@@ -21,6 +17,10 @@
 }
 <<<<<<< HEAD
 */
+
+#dialog{
+    display: none;
+}
 
 #eventName{
     width: 100%;
