@@ -29,9 +29,9 @@ h1.modal-title {
 }
 
 #calendar {
-   filter: blur(5px) !important;
-  -webkit-filter: blur(5px) !important;			
-  pointer-events: none !important; /* This disables mouse events while the calendar is blurred */
+    filter: blur(5px) !important;
+    -webkit-filter: blur(5px) !important;			
+    pointer-events: none !important; /* This disables mouse events while the calendar is blurred */
 }
 
 #dialog {
@@ -57,15 +57,15 @@ h1.modal-title {
 }
 
 #fb-btn{
-    position: absolute;
-    margin-top: -680px;
-    margin-left: 150px;
+    position: relative;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
 #twitter-wjs{
-    position: absolute;
-    margin-top: -680px;
-    margin-left: 230px;
+    position: relative;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
 #eventName, #datepicker, #location {
