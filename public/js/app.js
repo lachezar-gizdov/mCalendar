@@ -3,10 +3,10 @@ var ID = function () {
 };
 
 $(document).ready(function () {
-    // $('#login').on('hidden.bs.modal', () => {
-    //     $('#login').modal('show');
-    // });
-    // $('#login').modal('show');
+    $('#login').on('hidden.bs.modal', () => {
+        $('#login').modal('show');
+    });
+    $('#login').modal('show');
     $('#calendar').fullCalendar({
         aspectRatio: 2,
         firstDay: 1,
