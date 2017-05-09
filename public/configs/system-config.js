@@ -11,6 +11,7 @@ SystemJS.config({
         'router': './configs/sammy-config.js',
         'databaseController': './database/databaseController.js',
         'accountController': './controllers/accountController.js',
+        'homeController' : '../controllers/homeController.js'
     },
 
     packages: {
