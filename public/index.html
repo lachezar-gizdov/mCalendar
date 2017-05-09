@@ -10,6 +10,7 @@
     <link rel='stylesheet' href='css/main.css' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 </head>
 
 <body>
@@ -70,37 +71,36 @@
                     <input id="datepicker" type="text">
                 </p>
                 <p>
-                    <div>
-                        <div>
-                            <p>
-                                <label>
+                    <div class="options">
+                        <p>
+                            <label>
                                 <input type="checkbox" name="allday" value="value">
                                 <span>All Day Event</span>
                             </label>
-                            </p>
-                            <p>
-                                <label>
+                        </p>
+                        <p>
+                            <label>
                                 <input type="checkbox" name="email-alert" value="value">
                                 <span>Repeat Event</span>
                             </label>
-                            </p>
-                            <p>
-                                <label>
+                        </p>
+                        <p>
+                            <label>
                                 <input type="checkbox" name="email-alert" value="value">
                                 <span>Alert me via Email</span>
                             </label>
-                            </p>
-                        </div>
+                        </p>
                     </div>
                     <button id='createEventBtn' type="button">Create</button>
-            </form>
-        </div>
-        <div id="fb-btn" class="fb-share-button" data-href="https://github.com/iDonev/mCalendar" data-layout="button_count" data-mobile-iframe="true">
-            <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/iDonev/mCalendar">
+                    <!--Move To View Event Dialog-->
+                    <div id="fb-btn" class="fb-share-button" data-href="https://github.com/iDonev/mCalendar" data-layout="button_count" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/iDonev/mCalendar">
 		                    </a>
-        </div>
-        <div id="twitter-wjs">
-            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=My%20Calendar%20App">Tweet</a>
+                    </div>
+                    <div id="twitter-wjs">
+                        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=My%20Calendar%20App">Tweet</a>
+                    </div>
+            </form>
         </div>
     </div>
 
@@ -113,6 +113,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
         System.import('app');
     </script>

@@ -81,27 +81,28 @@ input {
 	border: 0px solid black !important;
 }
 
-/*
-
 #fb-btn{
-    position: absolute;
-    margin-top: -197px;
-    margin-left: 110px;
+    margin-top: 10px;
+    margin-left: 0px;
 }
 
 #twitter-wjs{
-    position: absolute;
-    margin-top: -197px;
-    margin-left: 190px;
+    margin-top: 0px;
+    margin-left: 10px;
+    display: inline-block;
 }
-
-*/
-
 
 #eventName, #datepicker{
     width: 100%;
 }
 
 #createEventBtn{
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 102%;
+}
+
+.options p{
+    margin: 0;
+    padding: 0;
 }
