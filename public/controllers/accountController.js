@@ -14,8 +14,6 @@ class AccountController {
 
 	guest(sammy) {
 
-		console.log('guest begin');
-
 		let ajaxRequest;
 
 		try {
@@ -35,6 +33,8 @@ class AccountController {
 
 		ajaxRequest.onreadystatechange = function(){
 			if(ajaxRequest.readyState == 4){
+				$('#login-overlay').hide();
+				$('#calendar').removeClass('active-overlay');
 				console.log(ajaxRequest.responseText);
 			}
 		}
@@ -42,7 +42,6 @@ class AccountController {
 		ajaxRequest.open("GET", "http://calendar.idonev.com/private/responder.php", true);
 		ajaxRequest.send(null); 
 
-		console.log('guest end');
 	}
 
 	register(sammy) {
