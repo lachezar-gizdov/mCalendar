@@ -82,13 +82,15 @@ input {
 }
 
 #fb-btn{
-    margin-top: 10px;
-    margin-left: 0px;
+    position: absolute;
+    margin-top: -665px; /* TODO: Fix negative margin*/
+    margin-left: 140px;
 }
 
 #twitter-wjs{
-    margin-top: 0px;
-    margin-left: 10px;
+    position: absolute;
+    margin-top: -665px; /* TODO: Fix negative margin*/
+    margin-left: 220px;
     display: inline-block;
 }
 
@@ -111,4 +113,8 @@ input {
     text-align: center;
     font-family: Helvetica-Neue !important;
     background-color: #BAC0CE;
+}
+
+.createBtn{
+    width: 250px;
 }

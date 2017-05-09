@@ -17,7 +17,37 @@ $(document).ready(function () {
         eventLimit: true,
         dayClick: function (date) {
             $(function () {
-                $("#dialog").dialog();
+                $("#dialog").dialog({
+                    buttons: [
+                        {
+                            text: "Create",
+                            click: function () {
+                                if (document.getElementById("eventName").value === '') {
+                                    toastr.error('Event name cannot be empty!');
+                                    return;
+                                }
+
+                                if (document.getElementById("datepicker").value === '') {
+                                    toastr.error('Event date cannot be empty!');
+                                    return;
+                                }
+
+                                let event = {
+                                    id: ID(),
+                                    title: document.getElementById("eventName").value,
+                                    start: document.getElementById("datepicker").value,
+                                    allDay: $('#allDayEvent').is(":checked"),
+                                    repeatEvent: $('#repeat-event').is('checked'),
+                                    emailAlert: $('#email-alert').is('checked')
+                                };
+
+                                $('#calendar').fullCalendar('renderEvent', event, true);
+                                $(this).dialog("close");
+                            },
+                            class: "createBtn"
+                        }
+                    ]
+                });
 
                 //TODO: Change to jquery
                 let el = document.getElementById("datepicker");
@@ -25,30 +55,6 @@ $(document).ready(function () {
             });
         },
     });
-});
-
-$('#createEventBtn').on('click', function () {
-    if (document.getElementById("eventName").value === '') {
-        toastr.error('Event name cannot be empty!');
-        return;
-    }
-
-    if (document.getElementById("datepicker").value === '') {
-        toastr.error('Event date cannot be empty!');
-        return;
-    }
-
-    let event = {
-        id: ID(),
-        title: document.getElementById("eventName").value,
-        start: document.getElementById("datepicker").value,
-        allDay: $('#allDayEvent').is(":checked"),
-        repeatEvent: $('#repeat-event').is('checked'),
-        emailAlert: $('#email-alert').is('checked')
-    };
-
-    $('#calendar').fullCalendar('renderEvent', event, true);
-    $('#dialog').css('display', 'none');
 });
 
 (function (d, s, id) {
