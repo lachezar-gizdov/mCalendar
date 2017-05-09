@@ -39,7 +39,7 @@ class AccountController {
 			}
 		}
 
-		ajaxRequest.open("GET", "http://calendar.idonev.com/private/responder.php", true);
+		ajaxRequest.open("GET", "http://calendar.idonev.com/private/responder.php?mode=guest", true);
 		ajaxRequest.send(null); 
 
 	}
