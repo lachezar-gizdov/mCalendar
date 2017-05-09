@@ -2,23 +2,14 @@
 <html lang="en">
 
 <head>
-    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calendar</title>
+    <title>Calendar by Team Manticore</title>
     <link rel='stylesheet' href='css/fullcalendar.css' />
     <link rel='stylesheet' href='css/main.css' />
-    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src='js/mcalendar.js'></script>
-    <script src='js/app.js'></script>
 </head>
 
 <body>
@@ -32,7 +23,7 @@
                         <h4 class="modal-title">By Team Manticore</h4>
                     </div>
                     <div class="modal-body">
-	                    <form id="loginForm" method="POST" action="/public/login/" novalidate="novalidate">
+	                    <form id="loginForm" method="POST" action="#/login" novalidate="novalidate">
 							<div class="form-group">
                             	<label for="username" class="control-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@email.com">
@@ -50,11 +41,11 @@
 								</label>
  							</div>
                             <button type="submit" class="btn btn-success btn-block">Login</button>
-                            <a href="/public/register/" class="btn btn-default btn-block">Register</a>
+                            <a href="#/register" class="btn btn-default btn-block">Register</a>
                             <p class="additional-options"> or </p>
-                            <a href="/public/guest/" class="btn btn-default btn-block">Continue as Guest</a>
+                            <a href="#/guest" class="btn btn-default btn-block">Continue as Guest</a>
                         </form>
-					</div>					
+					</div>
                 </div>
             </div>
         </div>
@@ -105,6 +96,19 @@
             <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=My%20Calendar%20App">Tweet</a>
         </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.12/system.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
+    <script src="./js/mcalendar.js"></script>
+    <script src="./configs/system-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.6/sammy.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        System.import('app');
+    </script>
 </body>
 
 </html>
