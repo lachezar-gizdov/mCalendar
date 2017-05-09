@@ -18,6 +18,10 @@ $(document).ready(function () {
         dayClick: function (date) {
             $(function () {
                 $("#dialog").dialog();
+
+                //TODO: Change to jquery
+                let el = document.getElementById("datepicker");
+                el.value = date.format('YYYY/MM/DD');
             });
         },
     });
@@ -34,26 +38,18 @@ $('#createEventBtn').on('click', function () {
         return;
     }
 
-    let isAllDay = false;
-
-    if ($('#allDayEvent').is(":checked")) {
-        isAllDay = true;
-    }
-
     let event = {
         id: ID(),
         title: document.getElementById("eventName").value,
-        start: document.getElementById("datepicker").value.format('YYYY/MM/DD'), //date.format('YYYY/MM/DD'),
-        allDay: isAllDay
+        start: document.getElementById("datepicker").value,
+        allDay: $('#allDayEvent').is(":checked"),
+        repeatEvent: $('#repeat-event').is('checked'),
+        emailAlert: $('#email-alert').is('checked')
     };
 
     $('#calendar').fullCalendar('renderEvent', event, true);
     $('#dialog').css('display', 'none');
 });
-
-//     //TODO: Change to jquery
-//     let el = document.getElementById("datepicker");
-//     el.value = date.format('YYYY/MM/DD');
 
 (function (d, s, id) {
     let js,
