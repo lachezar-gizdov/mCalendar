@@ -5,18 +5,17 @@ body {
 	font-family: Helvetica-Neue !important;
 }
 
-#login{
-	display: none;
+#login-overlay{
+    z-index: 2 !important;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;    
 }
 
 td {
     background: rgba(255, 255, 255, 0.35);
-}
-
-#header {
-    border: 3px solid red;
-    z-index: 2;
-    position: absolute;
 }
 
 .modal-title {
@@ -53,9 +52,10 @@ input {
 }
 
 #calendar {
-   filter: blur(5px);
-  -webkit-filter: blur(5px) !important;			
-  pointer-events: none !important; /*This disables mouse events while the calendar is blurred */
+    z-index: 1 !important;
+    filter: blur(5px);
+    -webkit-filter: blur(5px) !important;			
+    pointer-events: none !important; /*This disables mouse events while the calendar is blurred */
 }
 
 #dialog {
