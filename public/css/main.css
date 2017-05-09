@@ -19,18 +19,6 @@ td {
     position: absolute;
 }
 
-.modal-body {
-	margin: 0 auto !important;
-}
-
-.form-group label {
-	margin: 0 auto !important;
-}
-
-.form-group input {
-	margin: 0 auto !important;
-}
-
 .modal-title {
 	text-align: center !important;
 	color: #5c6a90 !important;
@@ -56,12 +44,7 @@ h1.modal-title {
    color: #5c6a90 !important;
 }
 
-.btn {
-	width: 60% !important;
-}
-
 input {
-	width: 60% !important;
 	color: #5c6a90 !important;
 }
 
