@@ -18,34 +18,38 @@ $(document).ready(function () {
         dayClick: function (date) {
             $(function () {
                 $("#dialog").dialog();
-
-                //TODO: Change to jquery
-                let el = document.getElementById("datepicker");
-                el.value = date.format('YYYY/MM/DD');
-
-                function AddEventOnCalendar(event) {
-                    $('#calendar').fullCalendar('renderEvent', event, true);
-                }
-
-                $('#createEventBtn').on('click', function () { //TODO: Fix, now is duplicating events
-                    if (document.getElementById("eventName").value === '') {
-                        toastr.error('Event name cannot be empty!');
-                        return;
-                    }
-
-                    let event = {
-                        id: ID(),
-                        title: document.getElementById("eventName").value,
-                        start: date.format('YYYY/MM/DD'),
-                        allDay: true
-                    };
-                    AddEventOnCalendar(event);
-                    $('#dialog').css('display', 'none');
-                });
             });
         },
     });
 });
+
+$('#createEventBtn').on('click', function () { //TODO: Fix, now is duplicating events
+    if (document.getElementById("eventName").value === '') {
+        toastr.error('Event name cannot be empty!');
+        return;
+    }
+
+    if (document.getElementById("datepicker").value === '') {
+        toastr.error('Event date cannot be empty!');
+        return;
+    }
+
+    let event = {
+        id: ID(),
+        title: document.getElementById("eventName").value,
+        start: document.getElementById("datepicker").value, //date.format('YYYY/MM/DD'),
+        allDay: true
+    };
+
+    $('#calendar').fullCalendar('renderEvent', event, true);
+    $('#dialog').css('display', 'none');
+});
+
+// function CreateEvent(date) {
+//     //TODO: Change to jquery
+//     let el = document.getElementById("datepicker");
+//     el.value = date.format('YYYY/MM/DD');
+// }
 
 (function (d, s, id) {
     var js,
