@@ -1,4 +1,3 @@
-console.log('test - systemjs');
 SystemJS.config({
     // tell SystemJS which transpiler to use
     transpiler: 'plugin-babel',

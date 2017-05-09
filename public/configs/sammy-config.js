@@ -3,8 +3,7 @@ import { accountController } from 'accountController';
 class Router {
 
     start() {
-        let sammy = null;
-        sammy = Sammy(function () {
+        let sammy = Sammy(function () {
 
             this.get('#/', (sammy) => sammy.redirect('#/home'));
             this.get('#/home', () => { });

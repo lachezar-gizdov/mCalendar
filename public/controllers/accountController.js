@@ -8,7 +8,6 @@ class AccountController {
 			console.log(sammy.params.username);
 			console.log(sammy.params.password);
 		} else {
-
 			sammy.redirect('#/home');
 		}
 	}

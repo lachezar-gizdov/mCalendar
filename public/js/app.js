@@ -5,6 +5,7 @@ var ID = function () {
 };
 
 $(document).ready(function () {
+    router.start();
     $('#login').on('hidden.bs.modal', () => {
         $('#login').modal('show');
     });
