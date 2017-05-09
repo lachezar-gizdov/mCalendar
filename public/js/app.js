@@ -23,7 +23,7 @@ $(document).ready(function () {
     });
 });
 
-$('#createEventBtn').on('click', function () { //TODO: Fix, now is duplicating events
+$('#createEventBtn').on('click', function () {
     if (document.getElementById("eventName").value === '') {
         toastr.error('Event name cannot be empty!');
         return;
