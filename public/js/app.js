@@ -20,14 +20,16 @@ $(document).ready(function () {
                 let el = document.getElementById("datepicker");
                 el.value = date.format('YYYY/MM/DD');
 
-                let event = {
-                    id: ID(),
-                    title: "event",
-                    start: date.format('YYYY/MM/DD'),
-                    allDay: true
-                };
-
-                $('#calendar').fullCalendar('renderEvent', event, true);
+                $('#createEventBtn').on('click', function () { //TODO: Fix, now is duplicating events
+                    let event = {
+                        id: ID(),
+                        title: document.getElementById("eventName").value,
+                        start: date.format('YYYY/MM/DD'),
+                        allDay: true
+                    };
+                    $('#calendar').fullCalendar('renderEvent', event, true);
+                    $('#dialog').css('display', 'none');
+                });
             });
         },
     });
