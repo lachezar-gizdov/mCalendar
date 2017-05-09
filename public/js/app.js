@@ -1,6 +1,6 @@
 import { router } from 'router';
 
-var ID = function () {
+let ID = function () {
     return '_' + Math.random().toString(36).substr(2, 9);
 };
 
@@ -34,25 +34,29 @@ $('#createEventBtn').on('click', function () {
         return;
     }
 
+    let isAllDay = false;
+
+    if ($('#allDayEvent').is(":checked")) {
+        isAllDay = true;
+    }
+
     let event = {
         id: ID(),
         title: document.getElementById("eventName").value,
-        start: document.getElementById("datepicker").value, //date.format('YYYY/MM/DD'),
-        allDay: true
+        start: document.getElementById("datepicker").value.format('YYYY/MM/DD'), //date.format('YYYY/MM/DD'),
+        allDay: isAllDay
     };
 
     $('#calendar').fullCalendar('renderEvent', event, true);
     $('#dialog').css('display', 'none');
 });
 
-// function CreateEvent(date) {
 //     //TODO: Change to jquery
 //     let el = document.getElementById("datepicker");
 //     el.value = date.format('YYYY/MM/DD');
-// }
 
 (function (d, s, id) {
-    var js,
+    let js,
         fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {
         return;
@@ -69,7 +73,7 @@ $(function () {
 });
 
 window.twttr = (function (d, s, id) {
-    var js,
+    let js,
         fjs = d.getElementsByTagName(s)[0],
         t = window.twttr || {};
     if (d.getElementById(id)) {
