@@ -9,12 +9,11 @@
     <title>Calendar</title>
     <link rel='stylesheet' href='css/fullcalendar.css' />
     <link rel='stylesheet' href='css/main.css' />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.6/sammy.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -30,46 +29,36 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title">Calendar</h4>
-                            <h4 class="modal-title">By Team Manticore</h4>
+                        <h4 class="modal-title">By Team Manticore</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="well">
-                                    <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
-                                        <div class="form-group">
-                                            <label for="username" class="control-label">Username</label>
-                                            <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username"
-                                                placeholder="example@gmail.com">
-                                            <span class="help-block"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password" class="control-label">Password</label>
-                                            <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
-                                            <span class="help-block"></span>
-                                        </div>
-                                        <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-                                        <div class="checkbox">
-                                            <label>
-                                    	<input type="checkbox" name="remember" id="remember"> Remember login
-									</label>
-                                            <p class="help-block">(if this is a private computer)</p>
-                                        </div>
-                                        <button type="submit" class="btn btn-success btn-block">Login</button>
-                                        <a href="/public/forgot/" class="btn btn-default btn-block">Help to login</a>
-                                    </form>
-                                </div>
+	                    <form id="loginForm" method="POST" action="/public/login/" novalidate="novalidate">
+							<div class="form-group">
+                            	<label for="username" class="control-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@email.com">
+                                <span class="help-block"></span>
                             </div>
-
-                            <div class="col-xs-6">
-                                <p class="lead">Register now for <span class="text-success">FREE</span></p>
-                                <p><a href="/public/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
-                            </div>
-                        </div>
-                    </div>
+							<div class="form-group">
+                                <label for="password" class="control-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                <span class="help-block"></span>
+                            </div>   
+                            <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+                            <div class="checkbox">
+                            	<label>
+									<input type="checkbox" name="remember" id="remember"> Remember Me
+								</label>
+ 							</div>
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+                            <a href="/public/register/" class="btn btn-default btn-block">Register</a>
+                            <p class="additional-options"> or </p>
+                            <a href="/public/guest/" class="btn btn-default btn-block">Continue as Guest</a>
+                        </form>
+					</div>					
                 </div>
             </div>
         </div>
+    </div>
         <div id='calendar'></div>
         <!-- TODO: Extract to Handlebars template -->
         <div id="dialog" title="Add Event">
@@ -81,32 +70,39 @@
                     <input id="datepicker" type="text">
                 </p>
                 <p>
-                    <input id="location" type="text" placeholder="e.g. Aleksandur Malinov str.">
-                </p>
-                <p>
-                    <div class="options">
-                        <p>
-                            <label>
+                    <div id="accordion">
+                        <p>More Options</p>
+                        <div>
+                            <p>
+                                <label>
                                 <input type="checkbox" name="allday" value="value">
                                 <span>All Day Event</span>
                             </label>
-                        </p>
-                        <p>
-                            <label>
+                            </p>
+                            <p>
+                                <label>
                                 <input type="checkbox" name="email-alert" value="value">
                                 <span>Repeat Event</span>
                             </label>
-                        </p>
-                        <p>
-                            <label>
+                            </p>
+                            <p>
+                                <label>
                                 <input type="checkbox" name="email-alert" value="value">
                                 <span>Alert me via Email</span>
                             </label>
-                        </p>
+                            </p>
+                        </div>
                     </div>
                 </p>
                 <button id='createEventBtn' type="button" >Create</button>
             </form>
+        </div>
+        <div id="fb-btn" class="fb-share-button" data-href="https://github.com/iDonev/mCalendar" data-layout="button_count" data-mobile-iframe="true">
+            <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/iDonev/mCalendar">
+		</a>
+        </div>
+        <div id="twitter-wjs">
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=My%20Calendar%20App">Tweet</a>
         </div>
     </div>
 </body>
