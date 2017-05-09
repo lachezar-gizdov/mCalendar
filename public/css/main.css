@@ -97,25 +97,10 @@ input {
 */
 
 
-#eventName{
-    width: 100%;
-}
-
-#datepicker{
+#eventName, #datepicker{
     width: 100%;
 }
 
 #createEventBtn{
     width: 102%;
-}
-
-.options ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.options p{
-    padding: 0;
-    margin: 0;
 }
