@@ -75,7 +75,11 @@ $(document).ready(function () {
 }(document, 'script', 'facebook-jssdk'));
 
 let fbEl = $('#fb-btn');
-//let url = $
+let url = window.location.href;
+fbEl.attr('data-href', url);
+
+$(`<a class='fb-xfbml-parse-ignore' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=${url}'></a>`)
+    .appendTo(fbEl);
 
 $(function () {
     $("#datepicker").datepicker();
