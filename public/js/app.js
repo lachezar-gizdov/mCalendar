@@ -1,3 +1,5 @@
+//TODO: Needs to be separated in several files using modules
+
 import { router } from 'router';
 
 let ID = function () {
