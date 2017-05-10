@@ -18,6 +18,9 @@ $(document).ready(function () {
         dayClick: function (date) {
             $(function () {
                 $("#dialog").dialog({
+                    resizable: false,
+                    show: true,
+                    hide: true,
                     buttons: [
                         {
                             text: "Create",

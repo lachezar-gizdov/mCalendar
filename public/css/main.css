@@ -61,6 +61,7 @@ input {
 
 #dialog {
 	display: none;
+    min-height: 200px;
 }       
 
 .modal-content {
@@ -116,5 +117,5 @@ input {
 }
 
 .createBtn{
-    width: 250px;
+    width: 250px; TODO: /*Fix, needs to be dynamic*/
 }
