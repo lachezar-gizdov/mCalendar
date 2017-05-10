@@ -89,18 +89,12 @@ input {
 
 #twitter-wjs{
     position: absolute;
-    margin-left: 90px;
+    margin-left: 110px;
     display: inline-block;
 }
 
 #eventName, #datepicker{
     width: 100%;
-}
-
-#createEventBtn{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 102%;
 }
 
 .options p{
@@ -115,5 +109,5 @@ input {
 }
 
 .createBtn{
-    width: 250px; TODO: /*Fix, needs to be dynamic*/
+    width: 250px; /*TODO: Fix, needs to be dynamic*/
 }
